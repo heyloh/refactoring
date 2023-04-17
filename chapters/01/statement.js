@@ -9,7 +9,7 @@ function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice.performances) {
-    const thisAmount = amountFor(perf, playFor(perf));
+    const thisAmount = amountFor(perf);
 
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
@@ -27,7 +27,7 @@ function statement(invoice, plays) {
 
   return result;
 
-  function amountFor(aPerformance, play) {
+  function amountFor(aPerformance) {
     let result = 0;
 
     switch (playFor(aPerformance).type) {
